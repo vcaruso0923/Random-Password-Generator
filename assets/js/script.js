@@ -18,7 +18,8 @@ function generatePassword() {
     }
     console.log("The string will be " + characterAmount + "characters long.");
     return characterAmount;
-}
+  }
+
   //What characters user wants to use
   var acceptedCharacterAmount = getCharacterAmount();
   
@@ -32,7 +33,32 @@ function generatePassword() {
   
   //Tell user their parameters
   window.alert("You want to make a password " + acceptedCharacterAmount + " characters long, and include the following character types: " + " Lowercase: " + useLowercase + 
-  ". Uppercase: " + useUppercase + ". Special Characters: " + useSpecialCharacters + ". Numbers: " + useNumbers + ". Press 'OK' if that is correct.")
+  ". Uppercase: " + useUppercase + ". Special Characters: " + useSpecialCharacters + ". Numbers: " + useNumbers + ". Press 'OK' if that is correct.");
+
+  //allowed characters based on user's input
+  var allowedCharacters = '';
+    if (useLowercase) {
+      allowedCharacters += lowercase;
+    }
+    if (useUppercase) {
+      allowedCharacters += uppercase;
+    }
+    if (useSpecialCharacters) {
+      allowedCharacters += specialCharacters;
+    }
+    if (useNumbers) {
+      allowedCharacters += numbers;
+    };
+  
+  var password = '';
+  var length = parseInt(acceptedCharacterAmount);
+  for (var i = 0; i < length; i++) {
+    var random = Math.floor(Math.random() * allowedCharacters.length);
+    password += allowedCharacters[random]
+  }
+  return password;
+  console.log(password);
+
 };
 
 // Write password to the #password input
