@@ -11,9 +11,14 @@ var specialCharacters = "!@#$%^&*()"
 function generatePassword() {
 
   //what characters would you like to allow , and how many?
-
-  var characterAmount = window.prompt("How many characters would you like in your password? Enter any value between 8 and 128.");
-  console.log(characterAmount);
+  var getCharacterAmount = function (){
+    var characterAmount = window.prompt("How many characters would you like in your password? Enter any value between 8 and 128.");
+    if (characterAmount < 8 || characterAmount > 128 || characterAmount === "" || characterAmount === null) {
+      window.alert("The value you entered is invalid. Try again!");
+      getCharacterAmount();
+    }
+  }
+  getCharacterAmount();
   
   var useLowercase = window.confirm("Would you like to include lowercase letters in your password?");
   
