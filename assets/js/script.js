@@ -10,15 +10,17 @@ var specialCharacters = "!@#$%^&*()"
 
 function generatePassword() {
 
-  //what characters would you like to allow , and how many?
-  var getCharacterAmount = function (){
-    var characterAmount = window.prompt("How many characters would you like in your password? Enter any value between 8 and 128.");
-    if (characterAmount < 8 || characterAmount > 128 || characterAmount === "" || characterAmount === null) {
-      window.alert("The value you entered is invalid. Try again!");
-      getCharacterAmount();
+  // how long the password will be
+  var getCharacterAmount = function() {
+    var characterAmount = "";
+    while (characterAmount === "" || characterAmount === null || characterAmount < 8 || characterAmount > 128) {
+        characterAmount = prompt("How many characters would you like in your password? Enter any value between 8 and 128.");
     }
-  }
-  getCharacterAmount();
+    console.log("The string will be " + characterAmount + "characters long.");
+    return characterAmount;
+}
+  //What characters user wants to use
+  var acceptedCharacterAmount = getCharacterAmount();
   
   var useLowercase = window.confirm("Would you like to include lowercase letters in your password?");
   
@@ -29,7 +31,7 @@ function generatePassword() {
   var useNumbers = window.confirm("Would you like to include numbers in your password?");
   
   //Tell user their parameters
-  window.alert("You want to make a password " + characterAmount + " characters long, and include the following character types: " + " Lowercase: " + useLowercase + 
+  window.alert("You want to make a password " + acceptedCharacterAmount + " characters long, and include the following character types: " + " Lowercase: " + useLowercase + 
   ". Uppercase: " + useUppercase + ". Special Characters: " + useSpecialCharacters + ". Numbers: " + useNumbers + ". Press 'OK' if that is correct.")
 };
 
