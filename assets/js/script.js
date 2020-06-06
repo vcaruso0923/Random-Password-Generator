@@ -16,13 +16,15 @@ function generatePassword() {
     while (characterAmount === "" || characterAmount === null || characterAmount < 8 || characterAmount > 128) {
         characterAmount = prompt("How many characters would you like in your password? Enter any value between 8 and 128.");
     }
-    console.log("The string will be " + characterAmount + "characters long.");
+    console.log("The string will be " + characterAmount + " characters long.");
     return characterAmount;
   }
 
   //What characters user wants to use
   var acceptedCharacterAmount = getCharacterAmount();
   
+  window.alert("Select which character types you want to use. You must select at least one character type.")
+
   var useLowercase = window.confirm("Would you like to include lowercase letters in your password?");
   
   var useUppercase = window.confirm("Would you like to include uppercase letters in your password?");
@@ -30,6 +32,10 @@ function generatePassword() {
   var useSpecialCharacters = window.confirm("Would you like to include special characters in your password?");
   
   var useNumbers = window.confirm("Would you like to include numbers in your password?");
+
+  if (useNumbers === false && useLowercase === false && useUppercase === false && useSpecialCharacters === false) {
+    window.alert("You must chose at least one character type! Click 'Generate Password' to try again!");
+  }
   
   //Tell user their parameters
   window.alert("You want to make a password " + acceptedCharacterAmount + " characters long, and include the following character types: " + " Lowercase: " + useLowercase + 
@@ -57,8 +63,6 @@ function generatePassword() {
     password += allowedCharacters[random]
   }
   return password;
-  console.log(password);
-
 };
 
 // Write password to the #password input
