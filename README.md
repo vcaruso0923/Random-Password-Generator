@@ -1,4 +1,4 @@
-# JavaScript Password Generator
+# Javascript Password Generator
 
 ## Overview
 A tool to randomly generate a password that meets certain criteria,
