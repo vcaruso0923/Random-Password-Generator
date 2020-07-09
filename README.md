@@ -1,12 +1,13 @@
 # JavaScript: Password Generator
 
-## Functionality
-
-As an employee with access to sensitive data,
-you want to randomly generate a password that meets certain criteria,
+## Overview
+A tool to randomly generate a password that meets certain criteria,
 so that you can create a strong password that provides greater security.
 
-Given that you need a new, secure password:
+## Link
+[Link to the live application](https://vcaruso0923.github.io/Random-Password-Generator/)
+
+## Functionality
 
 1. When you click the button to generate a password,
 then you are presented with a series of prompts for password criteria
@@ -28,9 +29,6 @@ then a password is generated that matches the selected criteria
 
 7. When the password is generated,
 then the password is either displayed in an alert or written to the page
-
-## Link to App
-[Link to the live application](https://vcaruso0923.github.io/Random-Password-Generator/)
 
 ## Screenshot
 
